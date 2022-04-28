@@ -1,0 +1,33 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string result;
+        int min=12412521,index;
+        if(strs.size()==1){
+            return strs[0];
+        }
+        for(int i=0; i<strs.size(); i++){
+            if(strs[i].length()<min){
+                min=strs[i].length();
+                index=i;
+            }
+        }
+        string shortestlang=strs[index];
+        
+        for(int i=0; i<shortestlang.length(); i++){
+            string lcp=shortestlang.substr(0,i+1);
+            int check=0;
+            for(int j=0; j<strs.size();j++){
+                if(j==index) continue;
+                string aa=strs[j];
+                if(aa.find(lcp)==0){
+                    check++;
+                }               
+                if(check==strs.size()-1){
+                    result=lcp;
+                }
+            }
+        }
+        return result;
+    }
+};
