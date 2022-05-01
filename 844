@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool backspaceCompare(string s, string t) {
+        string a="#";
+        while(s.find(a)!=string::npos){
+            int index=s.find(a);
+            if(index==0) s.erase(index,1);
+            else{
+                s.erase(index-1,2);
+            }
+        }
+        while(t.find(a)!=string::npos){
+            int index=t.find(a);
+            if(index==0) t.erase(index,1);
+            else{ 
+                t.erase(index-1,2);
+            }
+        }
+        if(s==t){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+};
