@@ -1,3 +1,4 @@
+//시간제한 O(log n) 이라 이분탐색을 해야 함.
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
