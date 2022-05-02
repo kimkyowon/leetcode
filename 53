@@ -1,0 +1,22 @@
+//Kadane's algorithm
+// 이 방법은 nums[i]까지의 최대값을 구하면 nums[i+1]의 최대값을 구할 수 있음.
+// nums[i]의 최대값은 nums[i]이 음수여도 그것을 포함하도록 해야하고 만약 nums[i]이 전보다 크면 nums[i]만 포함하도록 함.
+
+
+
+
+
+
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int cur_sum=0;
+        int max_sum=-10001;
+        for(int i=0; i<nums.size(); i++){
+            cur_sum=max(cur_sum+nums[i],nums[i]);
+            max_sum=max(max_sum,cur_sum);
+        }
+        return max_sum;
+    }
+};
