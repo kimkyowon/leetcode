@@ -1,0 +1,29 @@
+// 처음에는 그냥 첫 원소에 1더하고 10이 되면 0으로 하고 그다음원소 또 1더하는 식으로 하려다 굳이 그럴 필요 없이
+// 9999,999,99이렇게 9만 있는 수만 예외처리를 해주면 돼서 반복문 실행 도중 원소가 다 9라서 break가 되지 않는다면 
+// 벡터 digits의 사이즈를 1 늘려주고 999 -> 1000 이런식으로 했습니다.
+
+// 푼 시간: 33분35초
+
+
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int check=0;
+        int size=digits.size();
+        for(int i=digits.size()-1; i>=0; i--){
+            if(digits[i]==9){
+                digits[i]=0;
+            }
+            else{
+                check=1;
+                digits[i]+=1;
+                break;
+            }
+        }
+        if(check==0){
+            digits.resize(size+1);
+            digits[0]=1;
+        }
+        return digits;
+    }
+};
