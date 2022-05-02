@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int last=0,cnt=0,check=0;
+        for(int i=0; i<s.length(); i++){
+            if(s[i]!=' '){ //글자나오면 그때부터 카운트++
+                cnt++;
+                check=1; //글자가 하나 나왔다는 걸 알려줌.
+            }
+            else if(s[i]==' '&&check==1){ //공백이고 앞에 글자가 있으면
+                last=cnt; //길이 저장해두기
+                cnt=0;
+                check=0; //공백이 나왔으므로 앞에 글자는 없다로 됨.
+            }
+        }
+        if(cnt!=0){ //공백으로 끝나는 문자열이 아니면 cnt에 끝 부분 단어의 길이가 들어가므로 그것을 반환.
+		    last=cnt;
+	    }
+        return last;
+    }
+};
