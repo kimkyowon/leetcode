@@ -1,0 +1,19 @@
+// 경우의 수로 계산
+// 풀이 시간:17분 23초
+
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n==1||n==2) return n;
+        int result=1;
+        for(int i=1; i<=n/2; i++){
+            long long l=1;
+            for(int j=1; j<=i; j++){
+                l=l*(n-i-j+1);
+                l=l/j;
+            }
+            result+=l;
+        }
+        return result;
+    }
+};
