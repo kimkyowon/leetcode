@@ -1,0 +1,26 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+ 
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode*curNode=head;
+        while(curNode!=NULL&&curNode->next!=NULL){
+            if(curNode->val==curNode->next->val){ //중복 원소이면 연결을 현재 -> 다음 이 아닌
+                curNode->next=curNode->next->next; //현재 -> 다음 다음으로.
+            }
+            else{
+                curNode=curNode->next; // 중복원소가 아니면 현재 노드를 값이 다른 다음 노드로 설정.
+            }
+        }
+        return head;
+    }
+};
