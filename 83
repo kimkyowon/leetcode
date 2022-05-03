@@ -8,7 +8,7 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
- 
+ // 풀이 시간: 연결리스트에 대해 잘 몰라 검색함
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
