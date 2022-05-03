@@ -1,0 +1,26 @@
+//0과 1은 x값 그대로 반환.
+// 나머지는 i를 제곱해보고 그 수가 같으면 i리턴, 지금은 x보다 크고 그 전단계는 x보다 작으면 전단계 i를 리턴
+// 풀이 시간: 5분 47초
+class Solution {
+public:
+    int mySqrt(int x) {
+        int i=2;
+        int ans;
+        if(x==0||x==1) return x;
+        while(1){
+            long long result=pow(i,2);
+            if(result==x){
+                ans=i;
+                break;
+            }
+            else if(result>x&& pow(i-1,2)<x){
+                ans=i-1;
+                break;
+            }
+            else{
+                i++;
+            }
+        }
+        return ans;
+    }
+};
