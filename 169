@@ -1,0 +1,25 @@
+// 정렬 후 오른쪽 숫자와 동일 시 cnt++ 다르면 이때까지 세린 cnt랑 최대값 비교하여 최대 기록 갱신이면 인덱스 값과 maxx값 변경.
+// 풀이 시간: 10분 12초
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int cnt=1;
+        int maxx=-1;
+        int max_index=0;
+        for(int i=0; i<nums.size()-1; i++){
+            if(nums[i]==nums[i+1]) cnt++;
+            else{
+                if(cnt>=maxx){
+                    max_index=i;
+                    maxx=cnt;
+                    cnt=1;
+                }
+            }
+        }
+        if(cnt>=maxx){
+            max_index=nums.size()-1;
+        }
+        return nums[max_index];
+    }
+};
